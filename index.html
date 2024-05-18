@@ -9,6 +9,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script defer src="script.js"></script>
   </head>
   <body>
     <main>
@@ -17,9 +20,19 @@
         <div class="first">
           <h1 contenteditable="true"><span>Hii</span>I'am Anash</h1>
           <h1>Something excited is coming</h1>
-
-          <input type="email" placeholder="@gmail.com" />
-          <button>Subscribe</button>
+          <div class="coming-soon-app">
+            <input
+              type="email"
+              id="email"
+              placeholder="@gmail.com"
+              name="inputField"
+              required
+            />
+            <div id="error-message" style="color: red; display: none">
+              Email format is wrong.
+            </div>
+            <button type="submit" id="submit">Subscribe</button>
+          </div>
         </div>
         <div class="hero">
           <div class="launch-time">
@@ -53,16 +66,7 @@
           </div>
         </footer>
       </section>
-      <section class="sec2">
-        <!-- <div class="video-container">
-          <video controls>
-            <source src="background.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div> -->
-      </section>
+      <section class="sec2"></section>
     </main>
-
-    <script src="script.js"></script>
   </body>
 </html>

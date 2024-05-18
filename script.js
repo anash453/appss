@@ -19,5 +19,55 @@ let x = setInterval(function () {
     document.getElementById("hours").innerHTML = "00";
     document.getElementById("minutes").innerHTML = "00";
     document.getElementById("seconds").innerHTML = "00";
-}
-},1000);
+  }
+}, 1000);
+
+//FIre base store
+document.addEventListener("DOMContentLoaded", () => {
+  const firebaseConfig = {
+    apiKey: "AIzaSyBSfWojBiBg4Zg8zzXOaw1S5D57_YwjLHA",
+    authDomain: "landing-soon.firebaseapp.com",
+    databaseURL: "https://landing-soon-default-rtdb.firebaseio.com",
+    projectId: "landing-soon",
+    storageBucket: "landing-soon.appspot.com",
+    messagingSenderId: "570968170174",
+    appId: "1:570968170174:web:4cd529561ab4b62fcec8ef",
+    measurementId: "G-FE21TXGHR7",
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  const email = document.getElementById("email");
+  const submit = document.getElementById("submit");
+  const errorMessage = document.getElementById("error-message");
+
+  submit.addEventListener("click", (event) => {
+    event.preventDefault();
+    const text = email.value;
+
+    if (!isValidEmail(text)) {
+      errorMessage.style.display = "block";
+      return;
+    } else {
+      errorMessage.style.display = "none";
+    }
+
+    db.collection("Gmailll")
+      .add({
+        text: text,
+        // timestamp:firebase.firestore.FieldValue.servertimestamp()
+      })
+      .then(() => {
+        console.log("success");
+        email.value = "";
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  });
+  function isValidEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  }
+});

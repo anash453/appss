@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
       errorMessage.style.display = "none";
     }
 
-    db.collection("Gmailll")
+    db.collection("eeeeGmailll")
       .add({
         text: text,
-        // timestamp:firebase.firestore.FieldValue.servertimestamp()
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(() => {
         console.log("success");

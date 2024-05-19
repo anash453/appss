@@ -21,17 +21,22 @@
           <h1 contenteditable="true"><span>Hii</span>I'am Anash</h1>
           <h1>Something excited is coming</h1>
           <div class="coming-soon-app">
-            <input
-              type="email"
-              id="email"
-              placeholder="@gmail.com"
-              name="inputField"
-              required
-            />
-            <div id="error-message" style="color: red; display: none">
-              Email format is wrong.
-            </div>
-            <button type="submit" id="submit">Subscribe</button>
+            <form action="mailto:anash6291@gmail.com" method="post">
+              <input
+                type="email"
+                id="email"
+                placeholder="@gmail.com"
+                name="inputField"
+                required
+              />
+              <div
+                id="error-message"
+                style="color: red; display: none; font-size: 13px"
+              >
+                Email format is wrong.
+              </div>
+              <button type="submit" id="submit">Subscribe</button>
+            </form>
           </div>
         </div>
         <div class="hero">
